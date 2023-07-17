@@ -1,2 +1,3 @@
 /.gitignore
 /vcs.xml
+/db.sqlite3
