@@ -7,8 +7,7 @@ from django.contrib.auth.models import User
 # 2023-07-18
 class PublishedManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset()\
-                    .filter(status=Post.Status.PUBLISHED)
+        return super().get_queryset().filter(status=Post.Status.PUBLISHED)
 
 
 class Post(models.Model):
@@ -38,9 +37,9 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-publish']
-        # indexes = [
-        #     models.Index(fields=['-publish']),
-        # ]
+        indexes = [
+            models.Index(fields=['-publish']),
+        ]
 
     def __str__(self):
         return self.title
