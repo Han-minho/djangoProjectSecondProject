@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+# 2023-07-18
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset()\
@@ -31,6 +32,7 @@ class Post(models.Model):
         choices=Status.choices,
         default=Status.DRAFT
     )
+    # 2023-07-18
     objects = models.Manager()
     published = PublishedManager()
 
