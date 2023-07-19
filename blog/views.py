@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from blog.models import Post
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
+from blog.forms import EmailPostForm
 
 
 class PostListView(ListView):
@@ -13,6 +14,21 @@ class PostListView(ListView):
 
 
 # Create your views here.
+def post_share(request,post_id):
+    # id로 글 검색
+    post = get_object_or_404(Post,id=post_id,status=Post.Status.PUBLISHED)
+    if request.method == 'POST':
+        # 폼이 제출되었습니다.
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            # 폴 필드가 유효한 경우
+            cd = form.cleaned_data
+            # ... 이메일 전송
+        else:
+            form = EmailPostForm()
+        return render(request,'blog/post/share.html',{'post':post,'form':form})
+
+
 def post_list(request):
     per_page = request.GET.get('per_page', 3)
     page_number = request.GET.get('page', 1)
