@@ -4,6 +4,7 @@ from django.views.generic import ListView
 from blog.models import Post
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from blog.forms import EmailPostForm
+from django.core.mail import send_mail
 
 
 class PostListView(ListView):
@@ -17,16 +18,25 @@ class PostListView(ListView):
 def post_share(request,post_id):
     # id로 글 검색
     post = get_object_or_404(Post,id=post_id,status=Post.Status.PUBLISHED)
+    # 추가
+    sent = False
     if request.method == 'POST':
         # 폼이 제출되었습니다.
         form = EmailPostForm(request.POST)
         if form.is_valid():
             # 폴 필드가 유효한 경우
             cd = form.cleaned_data
+            post_url = request.build_absolute_uri(post.get_absolute_url())
+            subject = f"{cd['name']}님이 {post.title}을(를) 추천합니다."
+            message = f"{post.title}을(를) {post.url}에서 읽어보세요\n\n"\
+                      f"{cd['name']}의 의견: {cd['comments']}"
+            send_mail(subject,message,'hihi6024@gmail.com',[cd['to']])
+            sent = True
             # ... 이메일 전송
         else:
             form = EmailPostForm()
-        return render(request,'blog/post/share.html',{'post':post,'form':form})
+        return render(request,'blog/post/share.html',
+                      {'post':post,'form':form,'sent':sent})
 
 
 def post_list(request):
