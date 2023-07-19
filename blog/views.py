@@ -26,6 +26,7 @@ def post_list(request):
         posts = paginator.page(paginator.num_pages)
     return render(request, 'blog/post/list.html', {'posts': posts})
 
+
 def post_detail(request,year,month,day,post):
     # try:
     #     post = Post.published.get(id=id)
