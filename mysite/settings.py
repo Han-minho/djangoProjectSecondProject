@@ -125,6 +125,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# email 보내지 않기
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # 이메일 서버 구성
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'xxxxxx@gmail.com'
