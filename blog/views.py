@@ -18,7 +18,6 @@ class PostListView(ListView):
 
 # Create your views here.
 def post_list(request):
-    stage = os.getenv('STAGE', 'dev')
     per_page = request.GET.get('per_page', 3)
     page_number = request.GET.get('page', 1)
     post_list = Post.published.all()
