@@ -20,15 +20,15 @@ class PostListView(ListView):
 # Create your views here.
 def post_list(request,tag_slug=None):
     per_page = request.GET.get('per_page', 3)
-    page_number = request.GET.get('page', 1)
     post_list = Post.published.all()
     tag = None
     if tag_slug:
-        tag = get_object_or_404(Tag,slug=tag_slug)
+        tag = get_object_or_404(Tag, slug=tag_slug)
         post_list = post_list.filter(tags__in=[tag])
 
     # Pagination with 3 posts per page
     paginator = Paginator(post_list, per_page, orphans=1)
+    page_number = request.GET.get('page', 1)
     try:
         posts = paginator.page(page_number)
     except PageNotAnInteger:
