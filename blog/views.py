@@ -19,7 +19,7 @@ class PostListView(ListView):
 
 
 # Create your views here.
-def post_list(request,tag_slug=None):
+def post_list(request, tag_slug=None):
     per_page = request.GET.get('per_page', 3)
     page_number = request.GET.get('page', 1)
     post_list = Post.published.all()
@@ -36,7 +36,7 @@ def post_list(request,tag_slug=None):
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
     return render(request, 'blog/post/list.html',
-                  {'posts': posts, 'tag':tag})
+                  {'posts': posts, 'tag': tag})
 
 
 def post_detail(request, year, month, day, post):
@@ -61,7 +61,7 @@ def post_detail(request, year, month, day, post):
                   {'post': post,
                    'comments': comments,
                    'form': form,
-                   'similar_posts':similar_posts})
+                   'similar_posts': similar_posts})
 
 
 def post_share(request, post_id):
