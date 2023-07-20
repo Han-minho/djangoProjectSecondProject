@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 
+# post에서 상속
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status=Post.Status.PUBLISHED)
@@ -52,6 +53,7 @@ class Post(models.Model):
                              self.slug])
 
 
+# 댓글 기능
 class Comment(models.Model):
     post = models.ForeignKey(Post,
                              on_delete=models.CASCADE,
