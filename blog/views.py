@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
-
+from taggit.models import Tag
 from blog.forms import EmailPostForm, CommentForm
 from blog.models import Post
 from django.views.decorators.http import require_POST
@@ -18,10 +18,16 @@ class PostListView(ListView):
 
 
 # Create your views here.
-def post_list(request):
+def post_list(request,tag_slug=None):
     per_page = request.GET.get('per_page', 3)
     page_number = request.GET.get('page', 1)
     post_list = Post.published.all()
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag,slug=tag_slug)
+        post_list = post_list.filter(tags__in=[tag])
+
+    # Pagination with 3 posts per page
     paginator = Paginator(post_list, per_page, orphans=1)
     try:
         posts = paginator.page(page_number)
@@ -29,7 +35,8 @@ def post_list(request):
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    return render(request, 'blog/post/list.html', {'posts': posts, 'stage': stage})
+    return render(request, 'blog/post/list.html',
+                  {'posts': posts, 'tag':tag})
 
 
 def post_detail(request, year, month, day, post):
