@@ -13,3 +13,7 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['name','email','body']
 
+
+# 검색 뷰 만들기
+class SearchForm(forms.Form):
+    query = forms.CharField()

@@ -1,4 +1,5 @@
 /.idea
 .gitignore
 vcs.xml
-db.sqlite3
+/db.sqlite3
+/mysite_data.json
