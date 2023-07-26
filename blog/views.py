@@ -12,6 +12,7 @@ from django.db.models import Count
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from django.contrib.postgres.search import TrigramSimilarity
 
+
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
