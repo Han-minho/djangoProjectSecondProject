@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
 SITE_ID = 1
 # Application definition
 INSTALLED_APPS = [
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.postgres',
-    'account.apps.AccountConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -134,14 +135,14 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # email 보내지 않기
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # 이메일 서버 구성
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'hihi6024@gmail.com'
-EMAIL_HOST_PASSWORD = 'klpnijcxhpyjuuiz'
+EMAIL_HOST_PASSWORD = 'yxnguvzlbbshdnrs'
 EMAIL_POST = 587
 EMAIL_USE_TLS = True
 
-LOGIN_REDIRECT_URL = 'account:dashboard'
-LOGIN_URL = 'account:login'
-LOGOUT_URL = 'account:logout'
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
