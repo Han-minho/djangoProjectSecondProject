@@ -7,12 +7,14 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 
-class UserRegisterationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
+class UserRegistrationForm(forms.ModelForm):
+    password = forms.CharField(label='Password',
+                               widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Repeat password',
+                                widget=forms.PasswordInput)
 
     class Meta:
-        models = User
+        model = User
         fields = ['username', 'first_name', 'email']
 
     def clean_password2(self):

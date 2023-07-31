@@ -10,7 +10,10 @@
             Please try again.
         </p>
     {% else %}
-        <p>Please, use the following form to log-in:</p>
+        <p>
+            다음 폼을 사용하여 로그인하세요:
+            계정이 없다면 <a href="{% url 'register' %}">여기서 등록하세요.</a>
+        </p>
     {% endif %}
     <div class="login-form">
         <form action="{% url 'login' %}" method="post">
