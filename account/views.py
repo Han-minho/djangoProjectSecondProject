@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from account.forms import LoginForm
+from account.forms import LoginForm, UserRegisterationForm
 
 
 # Create your views here.
@@ -35,3 +35,20 @@ def dashboard(request):
 def user_logout(request):
     logout(request)
     return render(request, 'account/logged_out.html')
+
+
+def register(request):
+    if request.method == 'POST':
+        user_form = UserRegisterationForm(request.POST)
+        if user_form.is_valid():
+            # 새로운 사용자 객체를 생성하지만 아직 저장하지 않음
+            new_user = user_form.save(commit=False)
+            # 선택한 비밀번호를 설정합니다.
+            new_user.set_password(user_form.cleaned_data['password'])
+            # 사용자 객체를 저장합니다.
+            new_user.save()
+            return render(request, 'account/register_done.html', {'new_user': new_user})
+
+    else:
+        user_form = UserRegisterationForm()
+    return render(request, 'account/register.html', {'user_form': user_form})
