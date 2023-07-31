@@ -3,3 +3,6 @@
 vcs.xml
 /db.sqlite3
 /mysite_data.json
+media
+/media
+/media/
