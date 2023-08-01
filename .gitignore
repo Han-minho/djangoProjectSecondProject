@@ -6,3 +6,5 @@ vcs.xml
 media
 /media
 /media/
+cert.crt
+cert.key
