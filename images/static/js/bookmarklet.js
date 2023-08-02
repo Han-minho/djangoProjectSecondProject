@@ -16,11 +16,14 @@ head.appendChild(link);
 // HTML 로드
 var body = document.getElementsByTagName('body')[0];
 boxHtml = `
-    <div id="bookmarklet">
-        <a href="#" id="close">&times;</a>
-        <h1>Select an image to bookmark:</h1>
-        <div class="images"></div>
-    </div>`;
+<div id="bookmarklet">
+    <a href="#" id="close">&times;</a>
+    <h1>Select an image to bookmark:</h1>
+    <div class="images"></div>
+</div>
+`;
+
+console.log('boxHtml:', boxHtml);
 body.innerHTML += boxHtml;
 
 function bookmarkletLaunch() {
@@ -33,7 +36,7 @@ function bookmarkletLaunch() {
         // 닫기 이벤트
         bookmarklet.querySelector('#close')
             .addEventListener('click', function(){
-            bookmarklet.style.display = 'none'
+            bookmarklet.style.display = 'none';
         });
 
         // 최소 크기를 갖는 DOM 내의 이미지 찾기
