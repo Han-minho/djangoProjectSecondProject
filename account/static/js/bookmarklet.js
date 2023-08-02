@@ -35,6 +35,7 @@ function bookmarkletLaunch() {
             .addEventListener('click', function(){
             bookmarklet.style.display = 'none'
         });
+
         // 최소 크기를 갖는 DOM 내의 이미지 찾기
         images = document.querySelectorAll('img[src$=".jpg"], img[src$=".jpeg"], img[src$=".png"]');
         images.forEach(image => {
