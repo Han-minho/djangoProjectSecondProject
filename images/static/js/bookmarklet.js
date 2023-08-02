@@ -49,6 +49,7 @@ function bookmarkletLaunch() {
                 imagesFound.append(imageFound);
             }
         })
-    }
+}
+
 // 북마크릿 실행
 bookmarkletLaunch();
