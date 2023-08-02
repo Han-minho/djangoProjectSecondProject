@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}account an image{% endblock title %}
+{% block content %}
+    <h1>Account an image</h1>
+    <img src="{{ request.GET.url }}" class="image-preview">
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Account it!">
+    </form>
+{% endblock content %}
