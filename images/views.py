@@ -6,6 +6,7 @@ from images.forms import ImageCreateForm
 
 
 # Create your views here.
+@login_required
 def image_create(request):
     if request.method == 'POST':
         form = ImageCreateForm(data=request.POST)
@@ -20,9 +21,9 @@ def image_create(request):
             # redirect to new created item detail view
             return redirect(new_image.get_absolute_url())
 
-        else:
-            # build form with data provided by the bookmarklet via GET
-            form = ImageCreateForm(data=request.GET)
+    else:
+        # build form with data provided by the bookmarklet via GET
+        form = ImageCreateForm(data=request.GET)
         return render(request,
                       'images/image/create.html',
                       {'section': 'images',
