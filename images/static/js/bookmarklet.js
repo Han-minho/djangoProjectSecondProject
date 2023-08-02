@@ -49,7 +49,18 @@ function bookmarkletLaunch() {
                 imagesFound.append(imageFound);
             }
         })
+        // 이미지 선택 이벤트
+        imagesFound.querySelectorAll('img').forEach(image => {
+            image.addEventListener('click', function(event){
+                imageSelected = event.target:
+                bookmarklet.style.display = 'none';
+                window.open(siteUrl+'images/create/?url='
+                    +encodeURIComponent(imageSelected.src)
+                    +'&title='
+                    +encodeURIComponent(document.title),
+                    '_blank');
+            })
+        })
 }
-
 // 북마크릿 실행
 bookmarkletLaunch();
