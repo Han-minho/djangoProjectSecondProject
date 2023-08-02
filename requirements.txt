@@ -6,3 +6,4 @@ social-auth-app-django
 django-extensions
 werkzeug
 pyOpenSSL
+requests=2.31.0
