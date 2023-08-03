@@ -8,3 +8,7 @@ media
 /media/
 cert.crt
 cert.key
+venv
+/venv
+requirements.txt
+/requirements.txt
