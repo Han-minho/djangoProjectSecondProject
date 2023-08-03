@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -5,6 +6,7 @@ from django.contrib import messages
 from django.views.decorators.http import require_POST
 from images.models import Image
 from images.forms import ImageCreateForm
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -55,3 +57,22 @@ def image_like(request):
             pass
 
     return JsonResponse({'statis':'error'})
+
+
+@login_required
+def image_list(request):
+    all_images = Image.objects.all()
+    paginator = Paginator(all_images, 8)
+    page = request.GET.get('page')
+    images_only = request.GET.get('images_only')
+    try:
+        images = paginator.page(page)
+    except PageNotAnInteger:
+        images = paginator.page(1)
+    except EmptyPage:
+        if images_only:
+            return HttpResponse('')
+        images = paginator.page(paginator.num_pages)
+    if images_only:
+        return render(request, 'images/image/list_images.html', {'section': 'images', 'images': images})
+    return render(request, 'images/image/list.html', {'section': 'images', 'images': images})
