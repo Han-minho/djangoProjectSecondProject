@@ -45,6 +45,7 @@
 
         fetch(url, options)
             .then(response => response.json())
+            .catch(error => console.log(error.message))
             .then(data => {
               if (data['status'] === 'ok')
               {
