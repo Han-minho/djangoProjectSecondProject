@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [
 SITE_ID = 1
 # Application definition
 INSTALLED_APPS = [
+    'actions.apps.ActionsConfig',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
     'django.contrib.admin',
