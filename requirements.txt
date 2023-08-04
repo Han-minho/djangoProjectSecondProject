@@ -1,6 +1,7 @@
 asgiref
 Django
 Pillow
+Paginator
 sqlparse
 social-auth-app-django
 django-extensions
@@ -11,3 +12,9 @@ easy-thumbnails
 django-taggit==4.0.0
 psycopg2==2.9.6
 markdown==3.4.4
+contact
+django-extensions
+social-auth-core
+social-auth-app-django
+psycopg2
+psycopg2-binary
