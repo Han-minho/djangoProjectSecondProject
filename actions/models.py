@@ -7,7 +7,7 @@ from django.db import models
 
 
 class Action(models.Model):
-    user = models.ForeignKey('auth.user', related_name='actions', on_delete=models.CASCADE)
+    user = models.ForeignKey('auth.User', related_name='actions', on_delete=models.CASCADE)
     verb = models.CharField(max_length=255)
     created = models.DateTimeField(auto_now_add=True)
     target_ct = models.ForeignKey(ContentType,
