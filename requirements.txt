@@ -19,3 +19,4 @@ social-auth-app-django
 psycopg2
 psycopg2-binary
 django-debug-toolbar==4.1.0
+reids==4.6.0
