@@ -200,3 +200,7 @@ if DEBUG:
     mimetypes.add_type('application/javascript', '.js', True)
     mimetypes.add_type('text/css', '.css', True)
 
+
+REDIS_HOST = 'localhost'
+REDIS_POST = 6379
+REDIS_DB = 0
