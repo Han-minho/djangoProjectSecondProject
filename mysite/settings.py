@@ -202,5 +202,5 @@ if DEBUG:
 
 
 REDIS_HOST = 'localhost'
-REDIS_POST = 6379
+REDIS_PORT = 6379
 REDIS_DB = 0
