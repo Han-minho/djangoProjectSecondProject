@@ -29,7 +29,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cart/',include('cart.urls', namespace='cart')),
+    path('cart/', include('cart.urls', namespace='cart')),
     path('', include('shop.urls', namespace='shop')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls')),
