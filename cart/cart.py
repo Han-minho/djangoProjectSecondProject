@@ -30,6 +30,9 @@ class Cart:
         self.save()
 
     def save(self):
+        """
+            세션이 내용을 저장합니다.
+        """
         # 세션이 "수정됨"으로 표시되도록 설정하여 저장되도록 합니다.
         self.session.modified = True
 
@@ -55,3 +58,23 @@ class Cart:
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
             yield item
+
+    def __len__(self):
+        """
+            장바구니에 있는 모든 항목을 세어 반환합니다.
+        """
+        return sum(item['quantity'] for item in self.cart.values())
+
+    def get_total_price(self):
+        """
+            장바구니 항목들의 총 가격을 계산하는 메소드
+        """
+        return sum(Decimal(item['price'])* item['quantity'] for item in self.cart.values())
+
+    def clear(self):
+        """
+            세션에서 장바구니를 제거합니다.
+        """
+        # 세션에서 장바구니를 제거합니다.
+        del self.session[settings.CART_SESSION_ID]
+        self.save()
