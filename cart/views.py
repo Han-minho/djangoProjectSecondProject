@@ -7,8 +7,9 @@ from shop.models import Product
 
 
 # Create your views here.
+# 상품 장바구니에 추가
 @require_POST
-def cart_add(request,product_id):
+def cart_add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     form = CartAddProductForm(request.POST)
@@ -19,6 +20,7 @@ def cart_add(request,product_id):
     return redirect('cart:cart_detail')
 
 
+# 상품 장바구니에서 제거
 def cat_remove(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
@@ -26,6 +28,7 @@ def cat_remove(request, product_id):
     return redirect('cart:cart_detail')
 
 
+# 장바구니 항목 추가 및 제거 이외의 작업을 처리
 def cart_detail(request):
     cart = Cart(request)
     return render(request, 'cart/detail.html', {'cart': cart})
