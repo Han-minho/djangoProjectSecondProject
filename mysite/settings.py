@@ -188,7 +188,7 @@ SOCIAL_AUTH_PIPELINE = [
 ]
 
 ABSOLUTE_URL_OVERRIDES = {
-    'auth.user': lambda u : reverse_lazy('user_detail', args=[u.username])
+    'auth.user': lambda u: reverse_lazy('user_detail', args=[u.username])
 }
 
 INTERNAL_IPS = [
@@ -202,7 +202,8 @@ if DEBUG:
     mimetypes.add_type('application/javascript', '.js', True)
     mimetypes.add_type('text/css', '.css', True)
 
-
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 0
+
+CART_SESSION_ID = 'cart'
