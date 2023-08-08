@@ -33,6 +33,7 @@ SITE_ID = 1
 # Application definition
 INSTALLED_APPS = [
     'shop.apps.ShopConfig',
+    'cart.apps.CartConfig',
     'actions.apps.ActionsConfig',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
