@@ -29,13 +29,13 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cart/', include('cart.urls', namespace='cart')),
-    path('', include('shop.urls', namespace='shop')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls')),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('images/', include('images.urls', namespace='images')),
     path('__debug__/', include('debug_toolbar.urls')),
+    path('cart/', include('cart.urls', namespace='cart')),
+    path('', include('shop.urls', namespace='shop')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
 ]
