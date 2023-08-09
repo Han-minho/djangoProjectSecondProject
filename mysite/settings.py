@@ -34,6 +34,7 @@ SITE_ID = 1
 INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
     'actions.apps.ActionsConfig',
     'account.apps.AccountConfig',
     'images.apps.ImagesConfig',
