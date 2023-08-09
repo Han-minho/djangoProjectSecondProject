@@ -10,7 +10,8 @@ pyOpenSSL
 requests==2.31.0
 easy-thumbnails
 django-taggit==4.0.0
-psycopg2==2.9.6
+psycopg2==2.9.7
+psycopg2-binary==2.9.7
 markdown==3.4.4
 contact
 django-extensions
@@ -21,3 +22,4 @@ psycopg2-binary
 django-debug-toolbar==4.1.0
 redis~=4.6.0
 Pillow==10.0.0
+celery==5.3.1
