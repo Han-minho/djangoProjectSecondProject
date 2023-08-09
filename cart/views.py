@@ -31,6 +31,10 @@ def cat_remove(request, product_id):
 # 장바구니 항목 추가 및 제거 이외의 작업을 처리
 def cart_detail(request):
     cart = Cart(request)
+    for item in cart:
+        item['update_quantity_form'] = CartAddProductForm(
+            initial={'quantity': item['quantity'],
+                     'override': True})
     return render(request, 'cart/detail.html', {'cart': cart})
 
 
