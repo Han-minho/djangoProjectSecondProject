@@ -45,7 +45,7 @@ class Cart:
             del self.cart[product_id]
             self.save()
 
-    def __inter__(self):
+    def __iter__(self):
         """
             장바구니 항목을 반복하고 데이터베이스에서 제품을 가져옵니다.
         """
