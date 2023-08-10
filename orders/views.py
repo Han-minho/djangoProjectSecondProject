@@ -3,6 +3,7 @@ from django.shortcuts import render
 from cart.cart import Cart
 from orders.forms import OrderCreateForm
 from orders.models import OrderItem
+from orders.tasks import order_created
 
 
 # Create your views here.
@@ -20,6 +21,8 @@ def order_create(request):
                                          quantity=item['quantity'])
             # 카트 목록 삭제
             cart.clear()
+            # 비동기 작업 시작
+            order_created.delay(order.id)
             return render(request,
                           'orders/order/created.html',
                           {'order': order})
