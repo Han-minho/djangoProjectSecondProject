@@ -21,7 +21,7 @@ def cart_add(request, product_id):
 
 
 # 상품 장바구니에서 제거
-def cat_remove(request, product_id):
+def cart_remove(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
