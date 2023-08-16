@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [
 SITE_ID = 1
 # Application definition
 INSTALLED_APPS = [
+    'payment.apps.PaymentConfig',
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
@@ -204,23 +205,28 @@ if DEBUG:
     mimetypes.add_type('application/javascript', '.js', True)
     mimetypes.add_type('text/css', '.css', True)
 
-REDIS_HOST = 'localhost'
-REDIS_PORT = 6379
-REDIS_DB = 0
+# REDIS_HOST = 'localhost'
+# REDIS_PORT = 6379
+# REDIS_DB = 0
 
 CART_SESSION_ID = 'cart'
 
 
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+#
+# SESSION_REDIS_ALIAS = "default"
 
-SESSION_REDIS_ALIAS = "default"
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django_redis.cache.RedisCache",
+#         "LOCATION": "redis://127.0.0.1:6379/1",
+#         "OPTIONS": {
+#             "CLIENT_CLASS": "django_redis.client.DefaultClient"
+#         }
+#     }
+# }
 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient"
-        }
-    }
-}
+# Stripe 설정
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51NfWUnEyB0mrgeNHAKc9hSCK7eSX37p8hnzNHs5S8X0QfCbfjyRQmITLekLrMxqR6KmNANT1FBmFUAQ9BQejhoK300tOUYAupb'
+STRIPE_SECRET_KEY = 'sk_test_51NfWUnEyB0mrgeNHQkZxy81q8wbz6ppswWy1FHKOmKeu6wQ5HYdSvuXqu92IZagHXFEme25EcZiqhJG5un1GYqrP00uWIG0UQv'
+STRIPE_API_VERSION = '2022-08-01'
