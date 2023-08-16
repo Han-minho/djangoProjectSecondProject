@@ -12,3 +12,16 @@ venv
 /venv
 requirements.txt
 /requirements.txt
+lib
+/env/Scripts/activate
+/env/Scripts/activate.bat
+/env/Scripts/Activate.ps1
+/env/Scripts/deactivate.bat
+/env/Scripts/pip.exe
+/env/Scripts/pip3.11.exe
+/env/Scripts/pip3.exe
+/env/Scripts/python.exe
+/env/Scripts/python_d.exe
+/env/Scripts/pythonw.exe
+/env/Scripts/pythonw_d.exe
+/env/pyvenv.cfg
