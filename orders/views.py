@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from cart.cart import Cart
 from orders.forms import OrderCreateForm
 from orders.models import OrderItem
 from orders.tasks import order_created
+from django.urls import reverse
 
 
 # Create your views here.
@@ -22,10 +23,14 @@ def order_create(request):
             # 카트 목록 삭제
             cart.clear()
             # 비동기 작업 시작
-            order_created.delay(order.id)
-            return render(request,
-                          'orders/order/created.html',
-                          {'order': order})
+            # order_created.delay(order.id)
+            # 주문하기 세션 세팅
+            request.session['order_id'] = order.id
+            # 결제 대행사 서비스로 넘어간다.
+            return redirect(reverse('payment:process'))
+            # return render(request,
+            #               'orders/order/created.html',
+            #               {'order': order})
 
     else:
         form = OrderCreateForm()
