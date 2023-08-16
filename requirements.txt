@@ -30,3 +30,5 @@ flower
 sqlparse
 stripe
 WeasyPrint
+google-auth
+gobject
