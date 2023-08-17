@@ -211,7 +211,6 @@ if DEBUG:
 
 CART_SESSION_ID = 'cart'
 
-
 # SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 #
 # SESSION_REDIS_ALIAS = "default"
