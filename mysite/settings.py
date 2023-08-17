@@ -32,6 +32,7 @@ ALLOWED_HOSTS = [
 SITE_ID = 1
 # Application definition
 INSTALLED_APPS = [
+    'coupons.apps.CouponsConfig',
     'payment.apps.PaymentConfig',
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
