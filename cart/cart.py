@@ -1,6 +1,7 @@
 from decimal import Decimal
 from mysite import settings
 from shop.models import Product
+from coupons.models import Coupon
 
 
 class Cart:
