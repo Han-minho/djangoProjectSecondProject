@@ -14,11 +14,14 @@ from django.contrib.admin.views.decorators import staff_member_required
 # Create your views here.
 def order_create(request):
     cart = Cart(request)
-
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
         if form.is_valid():
-            order = form.save()
+            order = form.save(commit=False)
+            if cart.coupon:
+                order.coupon = cart.coupon
+                order.discount = cart.coupon.discount
+            order.save()
             for item in cart:
                 OrderItem.objects.create(order=order,
                                          product=item['product'],
@@ -27,7 +30,7 @@ def order_create(request):
             # 카트 목록 삭제
             cart.clear()
             # 비동기 작업 시작
-            # order_created.delay(order.id)
+            order_created.delay(order.id)
             # 주문하기 세션 세팅
             request.session['order_id'] = order.id
             # 결제 대행사 서비스로 넘어간다.
