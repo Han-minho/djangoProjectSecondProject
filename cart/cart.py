@@ -16,6 +16,7 @@ class Cart:
             cart = self.session[settings.CART_SESSION_ID] = {}
 
         self.cart = cart
+        self.coupon_id = self.session.get('coupon_id')
 
     def add(self, product, quantity=1, override_quantity=False):
         """
