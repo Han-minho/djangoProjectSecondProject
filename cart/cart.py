@@ -80,6 +80,7 @@ class Cart:
         """
         # 세션에서 장바구니를 제거합니다.
         del self.session[settings.CART_SESSION_ID]
+        del self.session['coupon_id']
         self.save()
 
     @property
