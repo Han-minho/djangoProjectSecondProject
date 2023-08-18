@@ -80,6 +80,7 @@ class Cart:
         """
         # 세션에서 장바구니를 제거합니다.
         del self.session[settings.CART_SESSION_ID]
+        # 장바구니 초기화 시 쿠폰 초기화
         del self.session['coupon_id']
         self.save()
 
