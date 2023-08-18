@@ -49,10 +49,12 @@
             <td colspan="4">합계</td>
             <td class="num">${{ order.get_total_cost|floatformat:2 }}</td>
         </tr>
+        <tr>
+            <form action="{% url 'payment:process' %}" method="POST">
+                <input type="submit" value="지금 결제하기">
+                {% csrf_token %}
+            </form>
+        </tr>
     </tbody>
-    <form action="{% url 'payment:process' %}" method="post">
-        <input type="submit" value="지금 결제하기">
-        {% csrf_token %}
-    </form>
 </table>
 {% endblock content %}
