@@ -206,10 +206,6 @@ if DEBUG:
     mimetypes.add_type('application/javascript', '.js', True)
     mimetypes.add_type('text/css', '.css', True)
 
-# REDIS_HOST = 'localhost'
-# REDIS_PORT = 6379
-# REDIS_DB = 0
-
 CART_SESSION_ID = 'cart'
 
 # SESSION_ENGINE = "django.contrib.sessions.backends.cache"
@@ -235,3 +231,7 @@ STRIPE_WEBHOOK_SECRET = 'whsec_1c8a6eb971b9dd523bcf3717e727a43109884684036df85f2
 STATIC_ROOT = BASE_DIR / 'static'
 
 CELERY_TASK_ALWAYS_EAGER = True
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1
