@@ -32,3 +32,6 @@ stripe
 WeasyPrint
 google-auth
 gobject
+django-rosetta==0.9.9
+django-parler==2.3
+django-localflavor==4.0
