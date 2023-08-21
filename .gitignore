@@ -168,3 +168,5 @@ lib
 /static/django_extensions/js/jquery.bgiframe.js
 /static/img/no_image.png
 /static/js/bookmarklet.js
+/gettext.exe
+/locale/
