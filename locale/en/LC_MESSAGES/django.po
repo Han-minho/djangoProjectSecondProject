@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 14:41+0900\n"
+"POT-Creation-Date: 2023-08-21 15:08+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cart\forms.py:8
-msgid "Quantity"
-msgstr "Quantity"
-
-#: .\coupons\forms.py:6
-msgid "Coupon"
-msgstr "Coupon"
-
 #: .\mysite\settings.py:247
 msgid "English"
 msgstr "English"
@@ -33,58 +25,6 @@ msgstr "English"
 #: .\mysite\settings.py:248
 msgid "Korean"
 msgstr "Korean"
-
-#: .\orders\models.py:12
-msgid "first name"
-msgstr "first name"
-
-#: .\orders\models.py:13
-msgid "last name"
-msgstr "last name"
-
-#: .\orders\models.py:14
-msgid "e-mail"
-msgstr "e-mail"
-
-#: .\orders\models.py:15
-msgid "address"
-msgstr "address"
-
-#: .\orders\models.py:16
-msgid "postal_code"
-msgstr "postal_code"
-
-#: .\orders\models.py:17
-msgid "city"
-msgstr "city"
-
-#: .\orders\templates\orders\order\create.html:4
-#: .\orders\templates\orders\order\create.html:7
-msgid "Checkout"
-msgstr "Checkout"
-
-#: .\orders\templates\orders\order\create.html:9
-msgid "Your order"
-msgstr "Your order"
-
-#: .\orders\templates\orders\order\create.html:20
-#, python-format
-msgid ""
-"\n"
-"                        \"%(code)s\" (%(discount)s%% off)\n"
-"                    "
-msgstr ""
-"\n"
-"                        \"%(code)s\" (%(discount)s%% off)\n"
-"                    "
-
-#: .\orders\templates\orders\order\create.html:29
-msgid "Total"
-msgstr "Total"
-
-#: .\orders\templates\orders\order\create.html:34
-msgid "Place order"
-msgstr "Place order"
 
 #: .\shop\templates\shop\base.html:15 .\shop\templates\shop\base.html:25
 msgid "My shop"
@@ -112,7 +52,6 @@ msgstr[1] ""
 "\n"
 "                            %(items)s items, $%(total)s\n"
 "                        "
-
 #: .\shop\templates\shop\base.html:46
 msgid "Your cart is empty."
 msgstr "Your cart is empty."
