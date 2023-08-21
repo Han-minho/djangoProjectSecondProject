@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 11:16+0900\n"
+"POT-Creation-Date: 2023-08-21 13:37+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\cart\forms.py:8
+msgid "Quantity"
+msgstr "Quantity"
+
+#: .\coupons\forms.py:6
+msgid "Coupon"
+msgstr "Coupon"
+
 #: .\mysite\settings.py:246
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: .\mysite\settings.py:247
 msgid "Korean"
-msgstr ""
+msgstr "Korean"
+
+#: .\orders\models.py:12
+msgid "first name"
+msgstr "first name"
+
+#: .\orders\models.py:13
+msgid "last name"
+msgstr "last name"
+
+#: .\orders\models.py:14
+msgid "e-mail"
+msgstr "e-mail"
+
+#: .\orders\models.py:15
+msgid "address"
+msgstr "address"
+
+#: .\orders\models.py:16
+msgid "postal_code"
+msgstr "postal_code"
+
+#: .\orders\models.py:17
+msgid "city"
+msgstr "city"
 
 #: .\venv\Lib\site-packages\click\_termui_impl.py:518
 #, python-brace-format
