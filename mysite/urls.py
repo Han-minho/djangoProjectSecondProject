@@ -48,7 +48,7 @@ urlpatterns = i18n_patterns(
 
 # urlpatterns 추가
 urlpatterns += [
-    path('webhook/', webhooks.stripe_webhook, name='stripe-webhook'),
+    path('payment/webhook/', webhooks.stripe_webhook, name='stripe-webhook'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

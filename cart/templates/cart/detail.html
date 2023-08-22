@@ -92,7 +92,7 @@
             </div>
         {% endif %}
         <!-- 장바구니 추천 메뉴 추가 완료-->
-        <p style="text-align:center;">Apply a coupon:</p>
+        <p style="text-align:right;">Apply a coupon:</p>
         <form action="{% url 'coupons:apply' %}" method="post" style="float:right;">
             {{ coupon_apply_form }}
             <input type="submit" value="쿠폰 적용">
