@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rosetta',
     'parler',
+    'localflavor',
 ]
 
 MIDDLEWARE = [
@@ -215,19 +216,19 @@ if DEBUG:
 
 CART_SESSION_ID = 'cart'
 
-# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-#
-# SESSION_REDIS_ALIAS = "default"
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": "redis://127.0.0.1:6379/1",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient"
-#         }
-#     }
-# }
+SESSION_REDIS_ALIAS = "default"
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        }
+    }
+}
 
 # Stripe 설정
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51NfWUnEyB0mrgeNHAKc9hSCK7eSX37p8hnzNHs5S8X0QfCbfjyRQmITLekLrMxqR6KmNANT1FBmFUAQ9BQejhoK300tOUYAupb'
