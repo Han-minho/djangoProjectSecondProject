@@ -1,17 +1,20 @@
 from django.db import models
 from django.urls import reverse
+from parler.models import TranslatableModel, TranslatedFields
 
 
 # Create your models here.
-class Category(models.Model):
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
+class Category(TranslatableModel):
+    translations = TranslatedFields(
+        name=models.CharField(max_length=200),
+        slug=models.SlugField(max_length=200, unique=True, allow_unicode=True),
+    )
 
     class Meta:
-        ordering = ['name']
-        indexes = [
-            models.Index(fields=['name']),
-        ]
+        # ordering = ['name']
+        # indexes = [
+        #     models.Index(fields=['name']),
+        # ]
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 
@@ -22,12 +25,14 @@ class Category(models.Model):
         return reverse('shop:product_list_by_category', args=[self.slug])
 
 
-class Product(models.Model):
+class Product(TranslatableModel):
+    translations = TranslatedFields(
+        name=models.CharField(max_length=200),
+        slug=models.SlugField(max_length=200, allow_unicode=True),
+        description=models.TextField(blank=True),
+    )
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, allow_unicode=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
-    description = models.TextField(blank=True)
     # 소수점 처리를 위한 방식(부동 소수점 처리)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
@@ -35,11 +40,11 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['name']
+        # ordering = ['name']
         indexes = [
-            models.Index(fields=['id', 'slug']),
-            models.Index(fields=['name']),
-            models.Index(fields=['-created'])
+            # models.Index(fields=['id', 'slug']),
+            # models.Index(fields=['name']),
+            models.Index(fields=['-created']),
         ]
 
     def __str__(self):
