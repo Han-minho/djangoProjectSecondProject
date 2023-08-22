@@ -253,7 +253,7 @@ LOCALE_PATHS = [
 
 # django-parler settings
 PARLER_LANGUAGES = {
-    None: (
+    1: (
         {'code': 'en'},
         {'code': 'ko'},
     ),
