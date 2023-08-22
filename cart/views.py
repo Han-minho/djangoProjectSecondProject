@@ -38,6 +38,16 @@ def cart_detail(request):
                      'override': True})
     coupon_apply_form = CouponApplyForm()
     r = Recommender()
+    # cart.clear()
+    # del request.session['cart']
+    # for item in cart:
+    #     if 'product' not in item:
+    #         del item
+
+    # print('!!!!!!')
+    # print(len(cart))
+    # print(str(cart))
+    # print('!!!!!!')
     cart_products = [item['product'] for item in cart]
     if cart_products:
         recommended_products = r.suggest_products_for(cart_products, max_results=4)
